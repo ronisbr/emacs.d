@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: @with_kw struct
+# key: wkstruct
+# --
+@with_kw struct $1
+    $0
+end

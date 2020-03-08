@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: mutable struct
+# key: mstruct
+# --
+mutable struct $1
+    $0
+end

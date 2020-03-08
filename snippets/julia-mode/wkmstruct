@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: @with_kw mutable struct
+# key: wkmsturct
+# --
+@with_kw mutable struct $1
+    $0
+end
