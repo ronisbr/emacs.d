@@ -122,8 +122,8 @@
 (global-display-line-numbers-mode t)
 
 ;; Display a ruler with relative numbers.
-(setq display-line-numbers 'relative
-      display-line-numbers-current-absolute t)
+;; (setq display-line-numbers 'relative
+;;       display-line-numbers-current-absolute t)
 
 ;; Require a new line at the end.
 (setq require-final-newline t)
