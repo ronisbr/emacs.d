@@ -10,6 +10,7 @@ rm -rf ./ac-comphist.dat \
        ./emojis \
        ./eshell \
        ./recentf \
-       ./smex-items
+       ./smex-items \
+       ./transient
 popd
 
