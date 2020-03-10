@@ -30,6 +30,8 @@
    ;; Modes in which white spaces will not be shown.
    (add-hook 'term-mode-hook
      (lambda() (display-fill-column-indicator-mode 0)))
+   (add-hook 'completion-list-mode-hook
+     (lambda() (display-fill-column-indicator-mode 0)))
    (add-hook 'custom-mode-hook
      (lambda() (display-fill-column-indicator-mode 0)))
 

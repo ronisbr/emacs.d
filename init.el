@@ -34,6 +34,7 @@
 
 ;; Package configurations.
 (require 'setup-ace-jump-mode)
+(require 'setup-auctex)
 (require 'setup-company-mode)
 (require 'setup-doom-modeline)
 (require 'setup-drag-stuff)

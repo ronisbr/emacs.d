@@ -24,6 +24,11 @@
     "A" 'evil-mc-make-cursor-in-visual-selection-end
     "I" 'evil-mc-make-cursor-in-visual-selection-beg)
 
+  ;; Normal and visual maps.
+  (nvmap
+    "<down>" 'evil-next-visual-line
+    "<up>"   'evil-previous-visual-line)
+
   ;; Prefix: SPC
   ;; ===========================================================================
 

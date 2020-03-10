@@ -8,7 +8,7 @@
 ;; Set executable paths.
 ;;
 ;; This is required to find `aspell` in macOS.
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setenv "PATH" "/usr/local/bin:/Library/TeX/texbin/:$PATH" t)
 (setq exec-path (append exec-path '("/usr/local/bin")))
 
 ;; The default directory should be the user's home.

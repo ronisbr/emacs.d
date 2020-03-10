@@ -6,6 +6,8 @@
 ;; =============================================================================
 
 (use-package evil
+  :init
+  (setq evil-respect-visual-line-mode t)
   :config
   (evil-mode 1))
 
