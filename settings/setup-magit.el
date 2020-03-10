@@ -5,6 +5,7 @@
 ;;
 ;; =============================================================================
 
-(use-package magit)
+(use-package magit
+  :commands (magint magit-status))
 
 (provide 'setup-magit)

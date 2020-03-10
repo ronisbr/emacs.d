@@ -6,7 +6,7 @@
 ;; =============================================================================
 
 (use-package company
- :config
+ :init
  ;; Enable company-mode globally.
  (global-company-mode)
  ;; Maximum number of candidates in tool tip.

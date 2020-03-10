@@ -29,14 +29,22 @@
 ;; Install use-package.
 (require 'setup-use-package)
 
+;; Setup appearence as soon as possible.
 (require 'appearance)
+
+;; Load modeline as soon as possible.
+(require 'setup-doom-modeline)
+
+;; We must load the package general before any other package.
+(use-package general)
+(general-evil-setup t)
+
 (require 'general-settings)
 
 ;; Package configurations.
 (require 'setup-ace-jump-mode)
 (require 'setup-auctex)
 (require 'setup-company-mode)
-(require 'setup-doom-modeline)
 (require 'setup-drag-stuff)
 (require 'setup-emojify)
 (require 'setup-eterm-256color)
@@ -46,9 +54,11 @@
 (require 'setup-git-gutter-fringe)
 (require 'setup-helm)
 (require 'setup-julia-mode)
-(require 'setup-keybindings)
 (require 'setup-magit)
 (require 'setup-minimap)
 (require 'setup-neotree)
 (require 'setup-smex)
 (require 'setup-yasnippet)
+
+;; Setup the keybindings.
+(require 'setup-keybindings)

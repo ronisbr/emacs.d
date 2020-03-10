@@ -6,8 +6,8 @@
 ;; =============================================================================
 
 (use-package julia-mode
-  :after company
-  :config
+  :mode ("\\.jl\\'" . julia-mode)
+  :init
   (add-hook 'julia-mode-hook
     '(lambda()
        ;; Add company-backend math-symbols-unicode only in Julia mode.

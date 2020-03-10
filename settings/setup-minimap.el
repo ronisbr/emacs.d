@@ -6,7 +6,8 @@
 ;; =============================================================================
 
 (use-package minimap
-  :config
+  :commands minimap-mode
+  :init
   (setq minimap-window-location 'right))
 
 (provide 'setup-minimap)

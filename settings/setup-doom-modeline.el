@@ -6,7 +6,6 @@
 ;; =============================================================================
 
 (use-package doom-modeline
-  :after evil
   :init
   (doom-modeline-mode t))
 
