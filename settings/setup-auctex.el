@@ -41,13 +41,6 @@
 
   ;; Do not show traling whitespaces in RefTeX.
   (add-hook 'reftex-select-label-mode-hook
-    (lambda() (setq show-trailing-whitespace nil)))
-
-  ;; Do not show fill column line in LaTeX or RefTeX (only for Emacs >= 27).
-  (when (>= emacs-major-version 27)
-    (add-hook 'LaTeX-mode-hook
-      (lambda() (display-fill-column-indicator-mode 0)))
-    (add-hook 'reftex-select-label-mode-hook
-      (lambda() (display-fill-column-indicator-mode 0)))))
+    (lambda() (setq show-trailing-whitespace nil))))
 
 (provide 'setup-auctex)

@@ -38,18 +38,11 @@
 
 ;; Enable fill column indicator (only for Emacs 27).
 (when (>= emacs-major-version 27)
-   (global-display-fill-column-indicator-mode t)
+  (add-hook 'prog-mode-hook
+    (lambda() (display-fill-column-indicator-mode t)))
 
-   ;; Modes in which white spaces will not be shown.
-   (add-hook 'term-mode-hook
-     (lambda() (display-fill-column-indicator-mode 0)))
-   (add-hook 'completion-list-mode-hook
-     (lambda() (display-fill-column-indicator-mode 0)))
-   (add-hook 'custom-mode-hook
-     (lambda() (display-fill-column-indicator-mode 0)))
-
-   ;; On macOS, tell Emacs to use Apple emoji font.
-   (if (eq system-type 'darwin)
-     (set-fontset-font "fontset-default" 'unicode "Apple Color Emoji" nil 'prepend)))
+  ;; On macOS, tell Emacs to use Apple emoji font.
+  (if (eq system-type 'darwin)
+    (set-fontset-font "fontset-default" 'unicode "Apple Color Emoji" nil 'prepend)))
 
 (provide 'appearance)
