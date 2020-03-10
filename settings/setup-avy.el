@@ -1,11 +1,11 @@
 ;; =============================================================================
-;; setup-ace-jump-mode.el
+;; setup-avy.el
 ;;
-;;      Configuration file: Ace jump mode.
+;;      Configuration file: Avy.
 ;;
 ;; =============================================================================
 
-(use-package ace-jump-mode
-  :commands ace-jump-mode)
+(use-package avy
+  :commands (avy-goto-char avy-goto-char-2 avy-goto-line avy-goto-word-1))
 
-(provide 'setup-ace-jump-mode)
+(provide 'setup-avy)

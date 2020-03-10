@@ -9,7 +9,7 @@
 ;; =============================================================================
 
 (nmap
-  "s" 'ace-jump-mode)
+  "s" 'avy-goto-char-2)
 
 ;; Visual map.
 (vmap
@@ -31,6 +31,10 @@
   "."   'next-buffer
   ","   'previous-buffer
   "sws" 'delete-trailing-whitespace
+  ;; Avy
+  "gc"  'avy-goto-char-0
+  "gl"  'avy-goto-line
+  "gw"  'avy-goto-word-1
   ;; Helm
   "f"   'helm-find-files
   "r"   'helm-recentf

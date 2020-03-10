@@ -42,7 +42,7 @@
 (require 'general-settings)
 
 ;; Package configurations.
-(require 'setup-ace-jump-mode)
+(require 'setup-avy)
 (require 'setup-auctex)
 (require 'setup-company-mode)
 (require 'setup-drag-stuff)
