@@ -6,9 +6,22 @@
 ;; =============================================================================
 
 ;; Install and configure `atom-one-dark` theme.
-(use-package atom-one-dark-theme
+;; (use-package atom-one-dark-theme
+;;   :config
+;;   (load-theme 'atom-one-dark))
+
+;; Install and configure `doom-themes`.
+(use-package doom-themes
   :config
-  (load-theme 'atom-one-dark))
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-one t)
+
+  ;; Enable flashing mode-line on errors.
+  (doom-themes-visual-bell-config)
+
+  ;; Enable custom theme for neotree.
+  (doom-themes-neotree-config))
 
 ;; Show trailing spaces by default.
 (setq-default show-trailing-whitespace t)
