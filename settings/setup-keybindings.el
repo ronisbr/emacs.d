@@ -52,6 +52,8 @@
 ;; Visual map.
 (vmap
   :prefix "SPC"
+  ;; ialign
+  "ia"  'ialign
   ;; YASnippets
   "ye"  'yas-expand
   "yi"  'yas-insert-snippet)

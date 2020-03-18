@@ -53,6 +53,7 @@
 (require 'setup-flyspell)
 (require 'setup-git-gutter-fringe)
 (require 'setup-helm)
+(require 'setup-ialign)
 (require 'setup-julia-mode)
 (require 'setup-magit)
 (require 'setup-minimap)
