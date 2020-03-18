@@ -11,6 +11,7 @@ rm -rf ./ac-comphist.dat \
        ./eshell \
        ./recentf \
        ./smex-items \
-       ./transient
+       ./transient \
+       ./undo-tree
 popd
 

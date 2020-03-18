@@ -28,7 +28,9 @@
 
 ;; Modes in which white spaces will not be shown.
 (add-hook 'term-mode-hook
-  (lambda() (setq show-trailing-whitespace nil)))
+          (lambda() (setq show-trailing-whitespace nil)))
+(add-hook 'undo-tree-visualizer-mode-hook
+          (lambda() (setq show-trailing-whitespace nil)))
 
 ;; Highlight the current line.
 (global-hl-line-mode t)

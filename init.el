@@ -58,6 +58,7 @@
 (require 'setup-minimap)
 (require 'setup-neotree)
 (require 'setup-smex)
+(require 'setup-undo-tree)
 (require 'setup-yasnippet)
 
 ;; Setup the keybindings.

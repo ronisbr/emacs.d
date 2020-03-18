@@ -41,6 +41,8 @@
   "hb"  'helm-buffers-list
   "hk"  'helm-show-kill-ring
   "hm"  'helm-mini
+  ;; Undo tree
+  "uv"  'undo-tree-visualize
   ;; Windmove
   "<down>"  'windmove-down
   "<left>"  'windmove-left
