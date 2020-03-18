@@ -119,11 +119,11 @@
 (tool-bar-mode -1)
 
 ;; Display the line numbers only in prog modes.
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
-
-;; Display a ruler with relative numbers.
-(setq display-line-numbers 'relative
-      display-line-numbers-current-absolute t)
+(add-hook 'prog-mode-hook
+          (lambda()
+            (display-line-numbers-mode)
+            (setq-local display-line-numbers 'relative
+                        display-line-numbers-current-absolute t)))
 
 ;; Require a new line at the end.
 (setq require-final-newline t)
