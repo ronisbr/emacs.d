@@ -8,6 +8,9 @@
 ;; No prefix
 ;; =============================================================================
 
+(general-define-key
+  "<f4>" 'toggle-vterm)
+
 (nmap
   "s" 'avy-goto-char-2)
 
