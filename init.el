@@ -47,7 +47,6 @@
 (require 'setup-company-mode)
 (require 'setup-drag-stuff)
 (require 'setup-emojify)
-(require 'setup-eterm-256color)
 (require 'setup-expand-region)
 (require 'setup-evil-mc)
 (require 'setup-evil-mode)
@@ -61,6 +60,7 @@
 (require 'setup-neotree)
 (require 'setup-smex)
 (require 'setup-undo-tree)
+(require 'setup-vterm)
 (require 'setup-yasnippet)
 
 ;; Setup the keybindings.

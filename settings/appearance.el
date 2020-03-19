@@ -26,17 +26,22 @@
 ;; Show trailing spaces by default.
 (setq-default show-trailing-whitespace t)
 
-;; Modes in which white spaces will not be shown.
-(add-hook 'term-mode-hook
-          (lambda() (setq show-trailing-whitespace nil)))
-(add-hook 'undo-tree-visualizer-mode-hook
-          (lambda() (setq show-trailing-whitespace nil)))
-
 ;; Highlight the current line.
 (global-hl-line-mode t)
 
 ;; Set font.
 (set-face-attribute 'default nil :font "MesloLGSDZ Nerd Font-13")
+
+;; Appearence configurations for each mode.
+(add-hook 'term-mode-hook
+          (lambda() (setq show-trailing-whitespace nil)))
+(add-hook 'vterm-mode-hook
+          (lambda()
+            (setq show-trailing-whitespace nil)
+            (setq-local global-hl-line-mode nil)))
+(add-hook 'undo-tree-visualizer-mode-hook
+          (lambda()
+            (setq show-trailing-whitespace nil)))
 
 ;; Enable fill column indicator (only for Emacs 27).
 (when (>= emacs-major-version 27)
