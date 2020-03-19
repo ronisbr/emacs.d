@@ -60,4 +60,12 @@
   "ye"  'yas-expand
   "yi"  'yas-insert-snippet)
 
+;; Normal and visual maps.
+(nvmap
+  :prefix "SPC"
+  ;; Commnets
+  "cd" 'comment-dwim
+  "cl" 'comment-line
+  "ck" 'comment-kill)
+
 (provide 'setup-keybindings)
