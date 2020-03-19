@@ -20,7 +20,9 @@
 ;; Normal and visual maps.
 (nvmap
   "<down>" 'evil-next-visual-line
-  "<up>"   'evil-previous-visual-line)
+  "<up>"   'evil-previous-visual-line
+  ;; Expand region
+  "C-="    'er/expand-region)
 
 ;; Prefix: SPC
 ;; =============================================================================

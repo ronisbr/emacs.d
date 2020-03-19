@@ -48,6 +48,7 @@
 (require 'setup-drag-stuff)
 (require 'setup-emojify)
 (require 'setup-eterm-256color)
+(require 'setup-expand-region)
 (require 'setup-evil-mc)
 (require 'setup-evil-mode)
 (require 'setup-flyspell)
