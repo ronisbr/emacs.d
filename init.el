@@ -32,6 +32,12 @@
 ;; Setup appearence as soon as possible.
 (require 'appearance)
 
+;; Setup evil as soon as possible.
+(require 'setup-evil-mode)
+
+;; Setup dashboard as soon as possible.
+(require 'setup-dashboard)
+
 ;; Load modeline as soon as possible.
 (require 'setup-doom-modeline)
 
@@ -49,7 +55,6 @@
 (require 'setup-emojify)
 (require 'setup-expand-region)
 (require 'setup-evil-mc)
-(require 'setup-evil-mode)
 (require 'setup-flyspell)
 (require 'setup-git-gutter-fringe)
 (require 'setup-helm)
@@ -58,6 +63,7 @@
 (require 'setup-magit)
 (require 'setup-minimap)
 (require 'setup-neotree)
+(require 'setup-projectile)
 (require 'setup-smex)
 (require 'setup-undo-tree)
 (require 'setup-vterm)

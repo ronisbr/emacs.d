@@ -33,6 +33,10 @@
 (set-face-attribute 'default nil :font "MesloLGSDZ Nerd Font-13")
 
 ;; Appearence configurations for each mode.
+(add-hook 'dashboard-mode-hook
+          (lambda()
+            (setq show-trailing-whitespace nil)
+            (setq-local global-hl-line-mode nil)))
 (add-hook 'term-mode-hook
           (lambda() (setq show-trailing-whitespace nil)))
 (add-hook 'vterm-mode-hook

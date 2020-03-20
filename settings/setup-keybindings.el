@@ -46,6 +46,9 @@
   "hb"  'helm-buffers-list
   "hk"  'helm-show-kill-ring
   "hm"  'helm-mini
+  ;; Projectile
+  "pc"  'projectile-commander
+  "pt"  'projectile-command-map
   ;; Undo tree
   "uv"  'undo-tree-visualize
   ;; Windmove
