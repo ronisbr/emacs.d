@@ -10,6 +10,7 @@ rm -rf ./ac-comphist.dat \
        ./emojis \
        ./eshell \
        ./recentf \
+       ./projectile-bookmarks.eld \
        ./smex-items \
        ./transient \
        ./undo-tree
