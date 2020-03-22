@@ -36,6 +36,8 @@
   "."   'next-buffer
   ","   'previous-buffer
   "sws" 'delete-trailing-whitespace
+  ;; Ace window
+  "w"   'ace-window
   ;; Avy
   "gc"  'avy-goto-char
   "gl"  'avy-goto-line

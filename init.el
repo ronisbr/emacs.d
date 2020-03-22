@@ -48,6 +48,7 @@
 (require 'general-settings)
 
 ;; Package configurations.
+(require 'setup-ace-window)
 (require 'setup-avy)
 (require 'setup-auctex)
 (require 'setup-company-mode)
