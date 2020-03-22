@@ -65,10 +65,10 @@
 (require 'setup-magit)
 (require 'setup-markdown)
 (require 'setup-minimap)
-(require 'setup-neotree)
 (require 'setup-projectile)
 (require 'setup-smex)
 (require 'setup-undo-tree)
+(require 'setup-treemacs)
 (require 'setup-vterm)
 (require 'setup-yasnippet)
 

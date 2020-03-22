@@ -20,8 +20,8 @@
   ;; Enable flashing mode-line on errors.
   (doom-themes-visual-bell-config)
 
-  ;; Enable custom theme for neotree.
-  (doom-themes-neotree-config))
+  ;; Enable custom theme for treemacs.
+  (doom-themes-treemacs-config))
 
 ;; Show trailing spaces by default.
 (setq-default show-trailing-whitespace t)
