@@ -62,6 +62,7 @@
 (require 'setup-ialign)
 (require 'setup-julia-mode)
 (require 'setup-magit)
+(require 'setup-markdown)
 (require 'setup-minimap)
 (require 'setup-neotree)
 (require 'setup-projectile)
