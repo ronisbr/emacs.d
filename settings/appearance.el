@@ -30,7 +30,7 @@
 (global-hl-line-mode t)
 
 ;; Set font.
-(set-face-attribute 'default nil :font "MesloLGSDZ Nerd Font-13")
+(set-face-attribute 'default nil :font "MesloLGMDZ Nerd Font-13")
 
 ;; Appearence configurations for each mode.
 (add-hook 'dashboard-mode-hook
