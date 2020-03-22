@@ -115,7 +115,8 @@
 ;; Increase the memory.
 (setq gc-cons-threshold 20000000)
 
-;; Hide toolbar.
+;; Hide scrollbar and toolbar.
+(toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
 ;; Display the line numbers only in prog modes.
