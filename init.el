@@ -26,6 +26,11 @@
 ;; TEMPORARY
 (setq package-check-signature nil)
 
+;; Increase the garbace colector threshold to decrease the starup time. It will
+;; be reset later by enabling `gcmh-mode`.
+(setq gc-cons-threshold most-positive-fixnum
+      gc-cons-percentage 0.6)
+
 ;; Install use-package.
 (require 'setup-use-package)
 
@@ -74,3 +79,9 @@
 
 ;; Setup the keybindings.
 (require 'setup-keybindings)
+
+;; Setup `gcmh` (garbage collector magic hack) only at the final of the
+;; configuration process.
+(use-package gcmh
+  :init
+  (gcmh-mode 1))

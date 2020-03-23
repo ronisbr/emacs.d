@@ -112,9 +112,6 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-;; Increase the memory.
-(setq gc-cons-threshold 20000000)
-
 ;; Hide scrollbar and toolbar.
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
