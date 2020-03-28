@@ -71,7 +71,6 @@
 (require 'setup-markdown)
 (require 'setup-minimap)
 (require 'setup-projectile)
-(require 'setup-smex)
 (require 'setup-undo-tree)
 (require 'setup-treemacs)
 (require 'setup-vterm)

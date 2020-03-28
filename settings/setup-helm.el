@@ -5,7 +5,9 @@
 ;;
 ;; =============================================================================
 
-(use-package helm)
+(use-package helm
+  :init
+  (helm-mode t))
 
 (use-package helm-projectile
   :after projectile

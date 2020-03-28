@@ -9,7 +9,8 @@
 ;; =============================================================================
 
 (general-define-key
-  "<f4>" 'toggle-vterm)
+  "<f4>" 'toggle-vterm
+  "M-x"  'helm-M-x)
 
 (nmap
   "s" 'avy-goto-char-2)
