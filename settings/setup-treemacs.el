@@ -15,8 +15,7 @@
   :commands (treemacs))
 
 (use-package treemacs-icons-dired
-  :after (dired treemacs)
-  :commands (treemacs)
+  :after (dired)
   :config
   (treemacs-icons-dired-mode))
 
