@@ -5,8 +5,12 @@
 ;;
 ;; =============================================================================
 
-(use-package helm
-  :commands
-  (helm-find-files helm-recentf helm-buffers-list helm-show-kill-ring helm-mini))
+(use-package helm)
+
+(use-package helm-projectile
+  :after projectile
+  :commands (helm-projectile-find-file)
+  :config
+  (helm-projectile-on))
 
 (provide 'setup-helm)

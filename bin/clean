@@ -11,6 +11,7 @@ rm -rf ./ac-comphist.dat \
        ./eshell \
        ./recentf \
        ./projectile-bookmarks.eld \
+       ./projectile.cache \
        ./smex-items \
        ./transient \
        ./undo-tree
