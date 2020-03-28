@@ -5,6 +5,10 @@
 ;;
 ;; =============================================================================
 
+;; Hide scrollbar and toolbar.
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
 ;; Install and configure `atom-one-dark` theme.
 ;; (use-package atom-one-dark-theme
 ;;   :config

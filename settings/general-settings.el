@@ -112,10 +112,6 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-;; Hide scrollbar and toolbar.
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
-
 ;; Display the line numbers only in prog modes.
 (add-hook 'prog-mode-hook
           (lambda()
