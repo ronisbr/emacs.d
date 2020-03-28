@@ -84,3 +84,10 @@
 (use-package gcmh
   :init
   (gcmh-mode 1))
+
+;; To debug Emacs startup time, uncomment the following line, start emacs and
+;; execute `M-x esup`.
+;; (use-package esup
+;;   :ensure t
+;;   :pin melpa
+;;   :commands (esup))

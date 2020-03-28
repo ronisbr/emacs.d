@@ -11,14 +11,17 @@
   (treemacs-git-mode 'deferred))
 
 (use-package treemacs-evil
-  :after (evil treemacs))
+  :after (evil treemacs)
+  :commands (treemacs))
 
 (use-package treemacs-icons-dired
   :after (dired treemacs)
+  :commands (treemacs)
   :config
   (treemacs-icons-dired-mode))
 
 (use-package treemacs-projectile
-  :after (evil projectile))
+  :after (evil projectile)
+  :commands (treemacs))
 
 (provide 'setup-treemacs)

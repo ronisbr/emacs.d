@@ -6,6 +6,7 @@
 ;; =============================================================================
 
 (use-package emojify
+  :defer 1
   :config
 
   ;; On macOS, use `unicode` since we have a good emoji font.
