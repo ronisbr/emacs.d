@@ -25,6 +25,7 @@
 (nvmap
   "<down>" 'evil-next-visual-line
   "<up>"   'evil-previous-visual-line
+  "J"      'ronisbr/evil-join
   ;; Expand region
   "C-="    'er/expand-region)
 

@@ -12,11 +12,46 @@
   (evil-mode 1)
 
   ;; Ex commands.
-  (evil-ex-define-cmd "sp[lit]"  'split-window-below-and-focus)
-  (evil-ex-define-cmd "vs[plit]" 'split-window-right-and-focus))
+  (evil-ex-define-cmd "sp[lit]"  'ronisbr/split-window-below-and-focus)
+  (evil-ex-define-cmd "vs[plit]" 'ronisbr/split-window-right-and-focus))
 
-;; Functions for the Ex commands.
-(evil-define-command split-window-right-and-focus (arg)
+;; =============================================================================
+;;                User-defined operators related to Evil mode
+;; =============================================================================
+
+;; Join selected lines.
+;;
+;; Obtained from: https://github.com/emacs-evil/evil/issues/606
+(evil-define-operator ronisbr/evil-join (beg end)
+  "Join the selected lines."
+  :motion evil-line
+  (let* ((count (count-lines beg end))
+         ;; We join pairs at a time.
+         (count (if (> count 1) (1- count) count))
+         ;; The mark at the middle of the joined pair of lines.
+         (fixup-mark (make-marker)))
+    (dotimes (var count)
+      (if (and (bolp) (eolp))
+        (join-line 1)
+        (let* ((end (line-beginning-position 3))
+               (fill-column (1+ (- end beg))))
+          ;; Save the mark at the middle of the pair.
+          (set-marker fixup-mark (line-end-position))
+          ;; Join it via fill.
+          (fill-region-as-paragraph beg end)
+          ;; Jump back to the middle.
+          (goto-char fixup-mark)
+          ;; Context-dependent whitespace fixup.
+          (fixup-whitespace))))
+    ;; Remove the mark.
+    (set-marker fixup-mark nil)))
+
+;; =============================================================================
+;;                User-defined functions related to Evil mode
+;; =============================================================================
+
+;; Split the window to the right and move the focus there.
+(evil-define-command ronisbr/split-window-right-and-focus (arg)
   "Split the window vertically and focus the new window."
   (interactive "<a>")
   (split-window-right)
@@ -24,7 +59,8 @@
   (when arg
     (evil-edit arg)))
 
-(evil-define-command split-window-below-and-focus (arg)
+;; Split the window to below and move the focus there.
+(evil-define-command ronisbr/split-window-below-and-focus (arg)
   "Split the window horizontally and focus the new window."
   (interactive "<a>")
   (split-window-below)
@@ -32,7 +68,8 @@
   (when arg
     (evil-edit arg)))
 
-(evil-define-command toggle-vterm ()
+;; Toogle a small window with vterm opened.
+(evil-define-command ronisbr/toggle-vterm ()
   "Toggle vterm window."
   (interactive)
   ;; Name of the vterm buffer.
