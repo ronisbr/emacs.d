@@ -19,6 +19,14 @@
 
   ;; Enable flyspell-mode
   (add-hook 'text-mode-hook 'flyspell-mode)
-  (add-hook 'prog-mode-hook 'flyspell-prog-mode))
+  (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
+  ;; Switch dictionaries.
+  (defun ronisbr/flyspell-switch-dictionary ()
+    (interactive)
+    (let* ((old_dic ispell-current-dictionary)
+           (new_dic (if (string= old_dic "en_US") "pt_BR" "en_US")))
+      (ispell-change-dictionary new_dic)
+      (message "Dictionary switched to %s." new_dic))))
 
 (provide 'setup-flyspell)

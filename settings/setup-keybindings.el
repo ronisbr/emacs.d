@@ -10,6 +10,7 @@
 
 (general-define-key
   "<f4>" 'toggle-vterm
+  "<f5>" 'ronisbr/flyspell-switch-dictionary
   "M-x"  'helm-M-x)
 
 (nmap
