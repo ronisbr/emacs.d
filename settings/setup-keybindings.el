@@ -9,7 +9,7 @@
 ;; =============================================================================
 
 (general-define-key
-  "<f4>" 'toggle-vterm
+  "<f4>" 'ronisbr/toggle-vterm
   "<f5>" 'ronisbr/flyspell-switch-dictionary
   "M-x"  'helm-M-x)
 

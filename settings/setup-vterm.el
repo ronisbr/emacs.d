@@ -19,9 +19,6 @@
 
   ;; We want to start in insert mode when vterm is opened.
   (add-hook 'vterm-mode-hook
-            (lambda() (evil-insert 0)))
-
-  ;; Make `<F4>` toggle vterm window.
-  (define-key vterm-mode-map (kbd "<f4>") 'ronisbr/toggle-vterm))
+            (lambda() (evil-insert 0))))
 
 (provide 'setup-vterm)
