@@ -25,7 +25,11 @@
   (doom-themes-visual-bell-config)
 
   ;; Enable custom theme for treemacs.
-  (doom-themes-treemacs-config))
+  (setq doom-themes-treemacs-theme "doom-colors")
+  (doom-themes-treemacs-config)
+
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 
 ;; Show trailing spaces by default.
 (setq-default show-trailing-whitespace t)
