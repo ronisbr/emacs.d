@@ -22,6 +22,6 @@
             (lambda() (evil-insert 0)))
 
   ;; Make `<F4>` toggle vterm window.
-  (define-key vterm-mode-map (kbd "<f4>") 'toggle-vterm))
+  (define-key vterm-mode-map (kbd "<f4>") 'ronisbr/toggle-vterm))
 
 (provide 'setup-vterm)
