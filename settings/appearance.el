@@ -25,11 +25,19 @@
   (doom-themes-visual-bell-config)
 
   ;; Enable custom theme for treemacs.
-  (setq doom-themes-treemacs-theme "doom-colors")
   (doom-themes-treemacs-config)
 
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
+
+;; Enable solaire mode.
+(use-package solaire-mode
+  :hook
+  ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+  (minibuffer-setup . solaire-mode-in-minibuffer)
+  :config
+  (solaire-global-mode +1)
+  (solaire-mode-swap-bg))
 
 ;; Show trailing spaces by default.
 (setq-default show-trailing-whitespace t)
@@ -41,6 +49,9 @@
 (set-face-attribute 'default nil :font "MesloLGMDZ Nerd Font-13")
 
 ;; Appearence configurations for each mode.
+(add-hook 'calendar-initial-window-hook
+          (lambda()
+            (setq show-trailing-whitespace nil)))
 (add-hook 'dashboard-mode-hook
           (lambda()
             (setq show-trailing-whitespace nil)
@@ -58,7 +69,10 @@
 ;; Enable fill column indicator (only for Emacs 27).
 (when (>= emacs-major-version 27)
   (add-hook 'prog-mode-hook
-    (lambda() (display-fill-column-indicator-mode t)))
+            (lambda() (display-fill-column-indicator-mode t)))
+
+  (add-hook 'org-mode-hook
+            (lambda() (display-fill-column-indicator-mode t)))
 
   ;; On macOS, tell Emacs to use Apple emoji font.
   (if (eq system-type 'darwin)
