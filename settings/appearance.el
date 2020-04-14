@@ -49,7 +49,7 @@
 (set-face-attribute 'default nil :font "MesloLGMDZ Nerd Font-13")
 
 ;; Appearence configurations for each mode.
-(add-hook 'calendar-initial-window-hook
+(add-hook 'minibuffer-setup-hook
           (lambda()
             (setq show-trailing-whitespace nil)))
 (add-hook 'dashboard-mode-hook

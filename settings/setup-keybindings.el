@@ -10,8 +10,7 @@
 
 (general-define-key
   "<f4>" 'ronisbr/toggle-vterm
-  "<f5>" 'ronisbr/flyspell-switch-dictionary
-  "M-x"  'helm-M-x)
+  "<f5>" 'ronisbr/flyspell-switch-dictionary)
 
 (nmap
   "s" 'avy-goto-char-2)
@@ -45,12 +44,16 @@
   "gc"  'avy-goto-char
   "gl"  'avy-goto-line
   "gw"  'avy-goto-word-1
-  ;; Helm
-  "f"   'helm-find-files
-  "r"   'helm-recentf
-  "hb"  'helm-buffers-list
-  "hk"  'helm-show-kill-ring
-  "hm"  'helm-mini
+  ;; Ivy
+  "b"  'counsel-switch-buffer
+  "f"  'counsel-find-file
+  "k"  'counsel-yank-pop
+  "l"  'counsel-locate
+  "m"  'counsel-mark-ring
+  "r"  'counsel-recentf
+  ;; Org mode
+  "oa"  'org-agenda
+  "oc"  'org-capture
   ;; Projectile
   "pc"  'projectile-commander
   "pt"  'projectile-command-map

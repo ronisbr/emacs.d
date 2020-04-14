@@ -15,7 +15,7 @@
   (setq dashboard-items '((recents . 5)
                           (bookmarks . 5)
                           (projects . 8)
-                          (agenda . 5)
+;;                          (agenda . 5)
                           (registers . 5)))
 
   ;; We want to start dashboard in insert mode.

@@ -9,7 +9,6 @@
   :config
   (projectile-mode t)
   (setq projectile-enable-caching t)
-  (setq projectile-completion-system 'helm)
-  (setq projectile-switch-project-action 'helm-projectile-find-file))
+  (setq projectile-completion-system 'ivy))
 
 (provide 'setup-projectile)
