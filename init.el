@@ -61,6 +61,7 @@
 (require 'setup-emojify)
 (require 'setup-expand-region)
 (require 'setup-evil-mc)
+(require 'setup-evil-numbers)
 (require 'setup-flyspell)
 (require 'setup-git-gutter-fringe)
 (require 'setup-highlight-numbers)

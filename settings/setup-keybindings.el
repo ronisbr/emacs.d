@@ -26,6 +26,9 @@
   "<down>" 'evil-next-visual-line
   "<up>"   'evil-previous-visual-line
   "J"      'ronisbr/evil-join
+  ;; Evil numbers
+  "C-a"    'evil-numbers/inc-at-pt
+  "C-x"    'evil-numbers/dec-at-pt
   ;; Expand region
   "C-="    'er/expand-region)
 
