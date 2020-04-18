@@ -7,7 +7,10 @@
 
 (use-package minimap
   :commands minimap-mode
-  :init
-  (setq minimap-window-location 'right))
+  :config
+  (setq minimap-window-location 'right)
+
+  ;; Do not highlight the active region in minimap, only the current line.
+  (setq minimap-active-region-background ((t nil))))
 
 (provide 'setup-minimap)
