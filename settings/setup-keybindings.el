@@ -57,6 +57,11 @@
   ;; Org mode
   "oa"  'org-agenda
   "oc"  'org-capture
+  "ojn" 'org-journal-new-entry
+  "ojo" 'ronisbr/org-journal-open
+  "otw" '(lambda() (interactive)(evil-edit ronisbr/org-capture-work-todo-file))
+  "otp" '(lambda() (interactive)(evil-edit ronisbr/org-capture-personal-todo-file))
+  "ow"  '(lambda() (interactive)(dired ronisbr/org-wiki-directory))
   ;; Projectile
   "pc"  'projectile-commander
   "pt"  'projectile-command-map
@@ -84,5 +89,28 @@
   "cd" 'comment-dwim
   "cl" 'comment-line
   "ck" 'comment-kill)
+
+;;                                Org mode map
+;; =============================================================================
+
+(nmap
+  :keymaps 'org-mode-map
+  "C-i" 'org-cycle)          ;; This is required to make <tab> works in console.
+
+(nmap
+  :prefix "SPC"
+  :keymaps 'org-mode-map
+  "c"   'org-ctrl-c-ctrl-c
+  "m*"  'org-ctrl-c-star
+  "m-"  'org-ctrl-c-minus
+  "t"   'org-todo)
+
+;; Org-journal
+;; ===========
+
+(nmap
+  :keymaps 'org-journal-mode-map
+  "gn" 'org-journal-open-next-entry
+  "gp" 'org-journal-open-previous-entry)
 
 (provide 'setup-keybindings)

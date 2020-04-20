@@ -52,6 +52,9 @@
 (add-hook 'minibuffer-setup-hook
           (lambda()
             (setq show-trailing-whitespace nil)))
+(add-hook 'calendar-initial-window-hook
+          (lambda()
+            (setq show-trailing-whitespace nil)))
 (add-hook 'dashboard-mode-hook
           (lambda()
             (setq show-trailing-whitespace nil)

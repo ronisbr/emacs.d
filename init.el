@@ -71,6 +71,7 @@
 (require 'setup-magit)
 (require 'setup-markdown)
 (require 'setup-minimap)
+(require 'setup-org-mode)
 (require 'setup-projectile)
 (require 'setup-undo-tree)
 (require 'setup-treemacs)

@@ -65,6 +65,12 @@
 ;; Alias: 'yes' <-> 'y' and 'no' <-> 'n'.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; Select locale.
+(setenv "LANG" "pt_BR.UTF-8")
+(setenv "LC_CTYPE" "pt_BR.UTF-8")
+(setenv "LC_ALL" "pt_BR.UTF-8")
+(set-locale-environment "pt_BR.UTF-8")
+
 ;; Set UTF-8 as default encoding.
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -133,5 +139,9 @@
       scroll-step 1
       scroll-conservatively 10000
       scroll-preserve-screen-position 1)
+
+;; Fix dired in macOS.
+(when (string= system-type "darwin")
+  (setq dired-use-ls-dired nil))
 
 (provide 'general-settings)
