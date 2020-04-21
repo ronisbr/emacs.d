@@ -108,6 +108,7 @@
                 (,(format "%s\tPessoal" (all-the-icons-faicon "home" :face 'all-the-icons-green :v-adjust 0.01))
                  :keys "p"
                  :file ronisbr/org-capture-personal-todo-file
+                 :hook (lambda () (ispell-change-dictionary "pt_BR"))
                  :prepend t
                  :children ((,(format "%s\tNota" (all-the-icons-faicon "sticky-note" :face 'all-the-icons-green :v-adjust 0.01))
                             :keys "n"
@@ -134,6 +135,7 @@
                 (,(format "%s\tTrabalho" (all-the-icons-faicon "building" :face 'all-the-icons-orange :v-adjust 0.01))
                  :keys "t"
                  :file ronisbr/org-capture-work-todo-file
+                 :hook (lambda () (ispell-change-dictionary "pt_BR"))
                  :prepend t
                  :children ((,(format "%s\tNota" (all-the-icons-faicon "sticky-note" :face 'all-the-icons-green :v-adjust 0.01))
                             :keys "n"
