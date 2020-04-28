@@ -95,6 +95,11 @@
                              (?B . (:foreground "#ecbe7b"))
                              (?C . (:foreground "#98be65"))))
 
+  ;; Save org clock between Emacs sections.
+  (setq org-clock-persist 'history)
+  (org-clock-persistence-insinuate)
+  (setq org-clock-persist t)
+
   ;; ===========================================================================
   ;;                              Org-capture
   ;; ===========================================================================
