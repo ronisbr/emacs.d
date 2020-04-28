@@ -103,6 +103,8 @@
   "c"   'org-ctrl-c-ctrl-c
   "m*"  'org-ctrl-c-star
   "m-"  'org-ctrl-c-minus
+  "ki"  'org-clock-in
+  "ko"  'org-clock-out
   "t"   'org-todo)
 
 ;; Org-journal
