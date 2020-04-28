@@ -80,12 +80,12 @@
 
   ;; Configuration of TODO keywords.
   (setq org-todo-keywords
-      '((sequence "TODO(t)" "INPROGRESS(p)" "NEXT(n)" "|" "DONE(d!)" "DELEGATED(f@)" "CANCELED(c@)")))
+      '((sequence "TODO(t)" "NEXT(n)" "INPROGRESS(p)" "|" "DONE(d!)" "DELEGATED(f@)" "CANCELED(c@)")))
 
   (setq org-todo-keyword-faces
         '(("TODO" . org-todo)
-          ("INPROGRESS" . org-warning)
           ("NEXT" . (:foreground "#51afef"))
+          ("INPROGRESS" . org-warning)
           ("DONE" . org-done)
           ("DELEGATED" . org-done)
           ("CANCELED" . (:foreground "#ff6c6b" :weight bold))))
