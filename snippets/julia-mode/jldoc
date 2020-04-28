@@ -3,7 +3,6 @@
 # key: jldoc
 # --
 \"\"\"
-
     `(if yas-selected-text
        ;; ret will store the text to be returned.
        (let ((ret ""))
