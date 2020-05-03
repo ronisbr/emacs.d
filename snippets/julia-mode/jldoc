@@ -1,29 +1,8 @@
 # -*- mode: snippet -*-
 # name: Julia documentation
 # key: jldoc
+# type: command
 # --
-\"\"\"
-    `(if yas-selected-text
-       ;; ret will store the text to be returned.
-       (let ((ret ""))
 
-          ;; Everything must be in one line.
-          (let ((tmp (replace-regexp-in-string "\n[\s]*" " " yas-selected-text)))
-
-           ;; Check if the declaration is a function.
-           (if (string-prefix-p "function" tmp)
-             (setq ret (concat ret (string-trim (substring tmp 8 nil))))
-
-             ;; Check if the declaration is a macro.
-             (if (string-prefix-p "macro" tmp)
-               (progn
-                (setq ret (concat ret "@"))
-                (setq ret (concat ret (string-trim (substring tmp 5 nil)))))
-
-               ;; It is neither a function nor a macro.
-               (setq ret (concat ret (string-trim tmp))))))))`
-
-$1
-
-\"\"\"
-`yas-selected-text`$0
+(if yas-selected-text
+  (yas-expand-snippet (ronisbr/julia--create-doc yas-selected-text)))
