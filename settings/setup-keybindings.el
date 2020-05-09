@@ -63,6 +63,8 @@
   "okm" 'org-clock-menu
   "okg" 'org-clock-goto
   "oko" 'org-clock-out
+  "or"  'org-refile
+  "ous" '(lambda() (interactive)(org-update-statistics-cookies "ALL"))
   "otw" '(lambda() (interactive)(evil-edit ronisbr/org-capture-work-todo-file))
   "otp" '(lambda() (interactive)(evil-edit ronisbr/org-capture-personal-todo-file))
   "ow"  '(lambda() (interactive)(dired ronisbr/org-wiki-directory))
