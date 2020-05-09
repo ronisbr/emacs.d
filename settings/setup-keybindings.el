@@ -54,6 +54,10 @@
   "l"  'counsel-locate
   "m"  'counsel-mark-ring
   "r"  'counsel-recentf
+  ;; Fill line
+  "ac"  'ronisbr/copy-to-end
+  "ae"  'ronisbr/fill-to-end
+  "al"  'ronisbr/fill-line
   ;; Org mode
   "oa"  'org-agenda
   "oc"  'org-capture

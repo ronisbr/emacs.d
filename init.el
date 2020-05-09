@@ -81,6 +81,9 @@
 ;; Setup the keybindings.
 (require 'setup-keybindings)
 
+;; Local functions.
+(require 'fill-line)
+
 ;; Setup `gcmh` (garbage collector magic hack) only at the final of the
 ;; configuration process.
 (use-package gcmh
