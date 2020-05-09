@@ -191,8 +191,8 @@
   ;;                               Org agenda
   ;; ===========================================================================
 
-  ;; Right align tags using the column 80.
-  (setq org-tags-column -80)
+  ;; Left align tags after the column 80.
+  (setq org-tags-column +81)
 
   ;; Add all files in `ronisbr/org-directory` recursively.
   (setq org-agenda-files (directory-files-recursively ronisbr/org-directory

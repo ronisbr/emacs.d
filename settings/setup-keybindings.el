@@ -59,6 +59,10 @@
   "oc"  'org-capture
   "ojn" 'org-journal-new-entry
   "ojo" 'ronisbr/org-journal-open
+  "oki" 'org-clock-in
+  "okm" 'org-clock-menu
+  "okg" 'org-clock-goto
+  "oko" 'org-clock-out
   "otw" '(lambda() (interactive)(evil-edit ronisbr/org-capture-work-todo-file))
   "otp" '(lambda() (interactive)(evil-edit ronisbr/org-capture-personal-todo-file))
   "ow"  '(lambda() (interactive)(dired ronisbr/org-wiki-directory))
@@ -103,8 +107,6 @@
   "c"   'org-ctrl-c-ctrl-c
   "m*"  'org-ctrl-c-star
   "m-"  'org-ctrl-c-minus
-  "ki"  'org-clock-in
-  "ko"  'org-clock-out
   "t"   'org-todo)
 
 ;; Org-journal
