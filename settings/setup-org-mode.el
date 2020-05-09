@@ -78,22 +78,44 @@
   ;; Pressing `return` in links when in insert mode opens them.
   (setq org-return-follows-link t)
 
+  ;; Faces for the keywords.
+  (with-no-warnings
+    (custom-declare-face 'ronisbr/+org-todo-active  '((t (:inherit (bold font-lock-constant-face org-todo)))) "")
+    (custom-declare-face 'ronisbr/+org-todo-project '((t (:inherit (bold font-lock-doc-face org-todo)))) "")
+    (custom-declare-face 'ronisbr/+org-todo-onhold  '((t (:inherit (bold warning org-todo)))) "")
+    (custom-declare-face 'ronisbr/+org-todo-cancel  '((t (:inherit (bold error org-todo)))) ""))
+
   ;; Configuration of TODO keywords.
   (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "INPROGRESS(p)" "|" "DONE(d!)" "DELEGATED(f@)" "CANCELED(c@)")))
-
-  (setq org-todo-keyword-faces
-        '(("TODO" . org-todo)
-          ("NEXT" . (:foreground "#51afef"))
-          ("INPROGRESS" . org-warning)
-          ("DONE" . org-done)
-          ("DELEGATED" . org-done)
-          ("CANCELED" . (:foreground "#ff6c6b" :weight bold))))
+        '((sequence
+           "TODO(t)"
+           "PROJ(P)"
+           "INPR(p)"
+           "WAIT(w)"
+           "HOLD(h)"
+           "|"
+           "DONE(d!)"
+           "DELG(f@)"
+           "CANC(c@)")
+          (sequence
+           "[ ](T)"
+           "[-](S)"
+           "[?](W)"
+           "|"
+           "[X](D)"))
+        org-todo-keyword-faces
+        '(("PROJ" . ronisbr/+org-todo-project)
+          ("INPR" . ronisbr/+org-todo-active)
+          ("WAIT" . ronisbr/+org-todo-onhold)
+          ("HOLD" . ronisbr/+org-todo-onhold)
+          ("CANC" . ronisbr/+org-todo-cancel)
+          ("[-]"  . ronisbr/+org-todo-active)
+          ("[?]"  . ronisbr/+org-todo-onhold)))
 
   ;; Configuration of TODO priority colors.
-  (setq org-priority-faces '((?A . (:foreground "#ff6c6b" :weight bold))
-                             (?B . (:foreground "#ecbe7b"))
-                             (?C . (:foreground "#98be65"))))
+  (setq org-priority-faces '((?A . error)
+                             (?B . warning)
+                             (?C . success)))
 
   ;; Save org clock between Emacs sections.
   (setq org-clock-persist 'history)
@@ -236,6 +258,7 @@
   :config
   ;; Make leading start invisible.
   (setq org-superstar-leading-bullet ?\s
+        org-superstar-leading-fallback ?\s
         org-hide-leading-stars nil)
 
   ;; Do not prettify items or TODOs.
