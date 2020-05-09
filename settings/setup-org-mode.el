@@ -122,6 +122,13 @@
   (org-clock-persistence-insinuate)
   (setq org-clock-persist t)
 
+  ;; Setup refile targets.
+  (setq org-refile-targets
+        '((nil :maxlevel . 3)
+          (org-agenda-files :maxlevel . 3))
+        org-refile-use-outline-path 'file
+        org-outline-path-complete-in-steps nil)
+
   ;; ===========================================================================
   ;;                              Org-capture
   ;; ===========================================================================
@@ -145,7 +152,7 @@
                                        "%i %a"))
                             (,(format "%s\tAtividade" (all-the-icons-octicon "inbox" :face 'all-the-icons-yellow :v-adjust 0.01))
                              :keys "a"
-                             :headline "Atividades"
+                             :headline "Caixa de entrada de atividades"
                              :type entry
                              :template ("* TODO %? %^G%{extra}"
                                         "%i")
@@ -172,7 +179,7 @@
                                        "%i %a"))
                             (,(format "%s\tAtividade" (all-the-icons-octicon "inbox" :face 'all-the-icons-yellow :v-adjust 0.01))
                              :keys "a"
-                             :headline "Atividades"
+                             :headline "Caixa de entrada de atividades"
                              :type entry
                              :template ("* TODO %? %^G%{extra}"
                                         "%i")
@@ -196,7 +203,19 @@
 
   ;; Add all files in `ronisbr/org-directory` recursively.
   (setq org-agenda-files (directory-files-recursively ronisbr/org-directory
-                                                      "\.org$")))
+                                                      "\.org$"))
+
+  ;; ===========================================================================
+  ;;                                 Hooks
+  ;; ===========================================================================
+
+  (add-hook 'org-mode-hook
+            (lambda ()
+              ;; Always update statistics cookies when saving org files.
+              (add-hook 'before-save-hook
+                        (lambda () (org-update-statistics-cookies "ALL"))
+                        nil
+                        'make-it-local))))
 
 ;; =============================================================================
 ;;                          Org keybindings for Evil
