@@ -5,13 +5,16 @@ rm -rf ./ac-comphist.dat \
        ./auto-save-list \
        ./autosaves \
        ./backups \
+       ./bookmarks \
        ./custom.el \
        ./elpa \
        ./emojis \
        ./eshell \
-       ./recentf \
+       ./org-clock-save.el \
+       ./org-journal.cache \
        ./projectile-bookmarks.eld \
        ./projectile.cache \
+       ./recentf \
        ./smex-items \
        ./transient \
        ./undo-tree
