@@ -82,7 +82,9 @@
 (require 'setup-keybindings)
 
 ;; Local functions.
+(require 'comment-align)
 (require 'fill-line)
+(require 'text-align)
 
 ;; Setup `gcmh` (garbage collector magic hack) only at the final of the
 ;; configuration process.

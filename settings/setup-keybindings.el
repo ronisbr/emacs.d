@@ -55,9 +55,9 @@
   "m"  'counsel-mark-ring
   "r"  'counsel-recentf
   ;; Fill line
-  "ac"  'ronisbr/copy-to-end
-  "ae"  'ronisbr/fill-to-end
-  "al"  'ronisbr/fill-line
+  "afc" 'ronisbr/copy-to-end
+  "afe" 'ronisbr/fill-to-end
+  "afl" 'ronisbr/fill-line
   ;; Org mode
   "oa"  'org-agenda
   "oc"  'org-capture
@@ -95,7 +95,12 @@
 ;; Normal and visual maps.
 (nvmap
   :prefix "SPC"
-  ;; Commnets
+  ;; Alignments
+  "acc" 'ronisbr/comment-center-align
+  "acr" 'ronisbr/comment-right-align
+  "atc" 'ronisbr/text-center-align
+  "atr" 'ronisbr/text-right-align
+  ;; Comments
   "cd" 'comment-dwim
   "cl" 'comment-line
   "ck" 'comment-kill)
