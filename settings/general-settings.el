@@ -106,7 +106,11 @@
 (set-default 'indicate-empty-lines t)
 
 ;; Easily navigate sillycased words.
-(global-subword-mode 1)
+;;
+;; BUG: With this mode set and changing a word that have \bar or \hat (among
+;; others) delete the rest of the buffer.
+;;
+;; (global-subword-mode 1)
 
 ;; Don't break lines.
 (setq-default truncate-lines t)
