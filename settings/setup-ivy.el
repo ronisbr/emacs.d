@@ -30,7 +30,11 @@
         '((t . ivy--regex-fuzzy)))
 
   ;; Do not add the initial character in ivy, since we are using fuzzy finders.
-  (setq ivy-initial-inputs-alist nil))
+  (setq ivy-initial-inputs-alist nil)
+
+  ;; Ivy completion does not work well for evil-ex commands. Thus, we will
+  ;; disable it.
+  (advice-add 'evil-ex :around #'ronisbr/ivy-inhibit-completion-in-region-a))
 
 (use-package ivy-rich
   :after ivy
@@ -51,5 +55,14 @@
     (setq counsel-locate-cmd #'counsel-locate-cmd-mdfind))
 
   (counsel-mode))
+
+;; =============================================================================
+;;                                 Functions
+;; =============================================================================
+
+(defun ronisbr/ivy-inhibit-completion-in-region-a (orig-fn &rest args)
+  "Advice function to inhibit ivy completion."
+  (let ((completion-in-region-function #'completion--in-region))
+    (apply orig-fn args)))
 
 (provide 'setup-ivy)
