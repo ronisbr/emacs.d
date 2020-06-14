@@ -10,6 +10,7 @@
   :config
   ;; Do not use drag-stuff in org mode.
   (add-to-list 'drag-stuff-except-modes 'org-mode)
+  (add-to-list 'drag-stuff-except-modes 'git-rebase-mode)
 
   ;; Enable drag-stuff everywhere.
   (drag-stuff-global-mode t)
