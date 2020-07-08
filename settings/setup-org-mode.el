@@ -233,8 +233,8 @@
    org-agenda-deadline-leaders '("Deadline   " "In %3d d.  " "%2d d. ago  ")
    org-agenda-time-grid '((daily today remove-match)
                           (0800 1000 1200 1400 1600 1800 2000 2200)
-                          "      " "------------")
-  org-agenda-current-time-string "◀ ------ now")
+                          "      " "-----------")
+  org-agenda-current-time-string "◀ ----- now")
 
   ;; Custom agenda view.
   (setq org-agenda-custom-commands
