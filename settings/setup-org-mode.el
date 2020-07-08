@@ -150,19 +150,25 @@
                             :type entry
                             :template ("* %?"
                                        "%i %a"))
-                            (,(format "%s\tAtividade" (all-the-icons-octicon "inbox" :face 'all-the-icons-yellow :v-adjust 0.01))
+                            (,(format "%s\tAgendamento" (all-the-icons-octicon "calendar" :face 'all-the-icons-yellow :v-adjust 0.01))
+                             :keys "s"
+                             :headline "Caixa de entrada"
+                             :type entry
+                             :template ("* %? %^G\nSCHEDULED: %^{Início:}t"
+                                        "%i"))
+                            (,(format "%s\tAtividade" (all-the-icons-octicon "inbox" :face 'all-the-icons-blue :v-adjust 0.01))
                              :keys "a"
-                             :headline "Caixa de entrada de atividades"
+                             :headline "Caixa de entrada"
                              :type entry
                              :template ("* TODO %? %^G%{extra}"
                                         "%i")
                              :children ((,(format "%s\tSem prazo" (all-the-icons-octicon "checklist" :face 'all-the-icons-green :v-adjust 0.01))
                                          :keys "g"
                                          :extra "")
-                                        (,(format "%s\tCom prazo" (all-the-icons-material "timer" :face 'all-the-icons-orange :v-adjust -0.1))
+                                        (,(format "%s\tCom prazo" (all-the-icons-material "timer" :face 'all-the-icons-yellow :v-adjust -0.1))
                                          :keys "p"
                                          :extra "\nDEADLINE: %^{Prazo:}t")
-                                        (,(format "%s\tCom agendamento" (all-the-icons-octicon "calendar" :face 'all-the-icons-orange :v-adjust 0.01))
+                                        (,(format "%s\tCom agendamento" (all-the-icons-octicon "calendar" :face 'all-the-icons-blue :v-adjust 0.01))
                                          :keys "a"
                                          :extra "\nSCHEDULED: %^{Início:}t"
                                          )))))
@@ -177,19 +183,25 @@
                             :type entry
                             :template ("* %?"
                                        "%i %a"))
-                            (,(format "%s\tAtividade" (all-the-icons-octicon "inbox" :face 'all-the-icons-yellow :v-adjust 0.01))
+                            (,(format "%s\tAgendamento" (all-the-icons-octicon "calendar" :face 'all-the-icons-yellow :v-adjust 0.01))
+                             :keys "s"
+                             :headline "Caixa de entrada"
+                             :type entry
+                             :template ("* %? %^G\nSCHEDULED: %^{Início:}t"
+                                        "%i"))
+                            (,(format "%s\tAtividade" (all-the-icons-octicon "inbox" :face 'all-the-icons-blue :v-adjust 0.01))
                              :keys "a"
-                             :headline "Caixa de entrada de atividades"
+                             :headline "Caixa de entrada"
                              :type entry
                              :template ("* TODO %? %^G%{extra}"
                                         "%i")
                              :children ((,(format "%s\tSem prazo" (all-the-icons-octicon "checklist" :face 'all-the-icons-green :v-adjust 0.01))
                                          :keys "g"
                                          :extra "")
-                                        (,(format "%s\tCom prazo" (all-the-icons-material "timer" :face 'all-the-icons-orange :v-adjust -0.1))
+                                        (,(format "%s\tCom prazo" (all-the-icons-material "timer" :face 'all-the-icons-yellow :v-adjust -0.1))
                                          :keys "p"
                                          :extra "\nDEADLINE: %^{Prazo:}t")
-                                        (,(format "%s\tCom agendamento" (all-the-icons-octicon "calendar" :face 'all-the-icons-orange :v-adjust 0.01))
+                                        (,(format "%s\tCom agendamento" (all-the-icons-octicon "calendar" :face 'all-the-icons-blue :v-adjust 0.01))
                                          :keys "a"
                                          :extra "\nSCHEDULED: %^{Início:}t"
                                          ))))))))
@@ -204,6 +216,45 @@
   ;; Add all files in `ronisbr/org-directory` recursively.
   (setq org-agenda-files (directory-files-recursively ronisbr/org-directory
                                                       "\.org$"))
+
+  ;; Set default options when viewing agenda items.
+  (setq-default
+   org-agenda-window-setup 'current-window
+   org-agenda-skip-unavailable-files t
+   org-agenda-start-day "-3d"
+   org-agenda-span 10
+   org-agenda-overriding-header (concat "⚡ Agenda\n"
+                                        "⎺⎺⎺⎺⎺⎺⎺⎺")
+   org-agenda-repeating-timestamp-show-all nil
+   org-agenda-remove-tags t
+   org-agenda-prefix-format " %-11.11c %?-12t% s"
+   org-agenda-todo-keyword-format "✓️"
+   org-agenda-scheduled-leaders '("Scheduled  " "Sched.%2dx  ")
+   org-agenda-deadline-leaders '("Deadline   " "In %3d d.  " "%2d d. ago  ")
+   org-agenda-time-grid '((daily today remove-match)
+                          (0800 1000 1200 1400 1600 1800 2000 2200)
+                          "      " "------------")
+  org-agenda-current-time-string "◀ ------ now")
+
+  ;; Custom agenda view.
+  (setq org-agenda-custom-commands
+        '(("v" "Full view of the agenda"
+           ((todo "TODO" ((org-agenda-overriding-header
+                           (concat "️⚡ To do list\n"
+                                   "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺\n"
+                                   " Category    | Tag                  | Description"))
+                          (org-agenda-remove-tags t)
+                          (org-agenda-prefix-format " %-11.11c | %-20.20T |")
+                          (org-agenda-todo-keyword-format "")))
+            (todo "INPR" ((org-agenda-overriding-header
+                           (concat "️⚡ To do list (in progress)\n"
+                                   "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺\n"
+                                   " Category    | Tag                  | Description"))
+                          (org-agenda-remove-tags t)
+                          (org-agenda-prefix-format " %-11.11c | %-20.20T |")
+                          (org-agenda-todo-keyword-format "")))
+          (agenda "" ())
+          ))))
 
   ;; ===========================================================================
   ;;                                 Hooks
