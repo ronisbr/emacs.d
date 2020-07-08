@@ -13,16 +13,16 @@
 (defvar ronisbr/org-directory
   "~/Nextcloud/org/")
 
+(defvar ronisbr/org-agenda-directory
+  "~/Nextcloud/org/Agenda/")
+
 ;; Journal directory.
 (defvar ronisbr/+org-journal-directory
   "Diário")
 
 ;; TODO file for org-capture.
-(defvar ronisbr/+org-capture-personal-todo-file
-  "TODO-Pessoal.org")
-
-(defvar ronisbr/+org-capture-work-todo-file
-  "TODO-Trabalho.org")
+(defvar ronisbr/+org-capture-inbox-file
+  "Caixa de entrada.org")
 
 ;; Wiki directory.
 (defvar ronisbr/+org-wiki-directory
@@ -49,10 +49,8 @@
 ;;                               Configuration
 ;; =============================================================================
 
-(setq ronisbr/org-capture-personal-todo-file
-      (expand-file-name ronisbr/+org-capture-personal-todo-file ronisbr/org-directory))
-(setq ronisbr/org-capture-work-todo-file
-      (expand-file-name ronisbr/+org-capture-work-todo-file ronisbr/org-directory))
+(setq ronisbr/org-capture-inbox-file
+      (expand-file-name ronisbr/+org-capture-inbox-file ronisbr/org-agenda-directory))
 (setq ronisbr/org-journal-directory
       (expand-file-name ronisbr/+org-journal-directory ronisbr/org-directory))
 (setq ronisbr/org-wiki-directory
@@ -138,73 +136,43 @@
 
   ;; Templates for org-capture.
   (setq org-capture-templates
-        (doct `(
-                (,(format "%s\tPessoal" (all-the-icons-faicon "home" :face 'all-the-icons-green :v-adjust 0.01))
-                 :keys "p"
-                 :file ronisbr/org-capture-personal-todo-file
+        (doct `((,(format "%s\tNota" (all-the-icons-faicon "sticky-note" :face 'all-the-icons-green :v-adjust 0.01))
+                 :keys "n"
+                 :file ronisbr/org-capture-inbox-file
+                 :headline "Notas"
                  :hook (lambda () (ispell-change-dictionary "pt_BR"))
                  :prepend t
-                 :children ((,(format "%s\tNota" (all-the-icons-faicon "sticky-note" :face 'all-the-icons-green :v-adjust 0.01))
-                            :keys "n"
-                            :headline "Notas"
-                            :type entry
-                            :template ("* %?"
-                                       "%i %a"))
-                            (,(format "%s\tAgendamento" (all-the-icons-octicon "calendar" :face 'all-the-icons-yellow :v-adjust 0.01))
-                             :keys "s"
-                             :headline "Caixa de entrada"
-                             :type entry
-                             :template ("* %? %^G\nSCHEDULED: %^{Início:}t"
-                                        "%i"))
-                            (,(format "%s\tAtividade" (all-the-icons-octicon "inbox" :face 'all-the-icons-blue :v-adjust 0.01))
-                             :keys "a"
-                             :headline "Caixa de entrada"
-                             :type entry
-                             :template ("* TODO %? %^G%{extra}"
-                                        "%i")
-                             :children ((,(format "%s\tSem prazo" (all-the-icons-octicon "checklist" :face 'all-the-icons-green :v-adjust 0.01))
-                                         :keys "g"
-                                         :extra "")
-                                        (,(format "%s\tCom prazo" (all-the-icons-material "timer" :face 'all-the-icons-yellow :v-adjust -0.1))
-                                         :keys "p"
-                                         :extra "\nDEADLINE: %^{Prazo:}t")
-                                        (,(format "%s\tCom agendamento" (all-the-icons-octicon "calendar" :face 'all-the-icons-blue :v-adjust 0.01))
-                                         :keys "a"
-                                         :extra "\nSCHEDULED: %^{Início:}t"
-                                         )))))
-                (,(format "%s\tTrabalho" (all-the-icons-faicon "building" :face 'all-the-icons-orange :v-adjust 0.01))
-                 :keys "t"
-                 :file ronisbr/org-capture-work-todo-file
+                 :type entry
+                 :template ("* %?"
+                            "%i %a"))
+                (,(format "%s\tAgendamento" (all-the-icons-octicon "calendar" :face 'all-the-icons-yellow :v-adjust 0.01))
+                 :keys "s"
+                 :file ronisbr/org-capture-inbox-file
+                 :headline "Agendamentos"
                  :hook (lambda () (ispell-change-dictionary "pt_BR"))
                  :prepend t
-                 :children ((,(format "%s\tNota" (all-the-icons-faicon "sticky-note" :face 'all-the-icons-green :v-adjust 0.01))
-                            :keys "n"
-                            :headline "Notas"
-                            :type entry
-                            :template ("* %?"
-                                       "%i %a"))
-                            (,(format "%s\tAgendamento" (all-the-icons-octicon "calendar" :face 'all-the-icons-yellow :v-adjust 0.01))
-                             :keys "s"
-                             :headline "Caixa de entrada"
-                             :type entry
-                             :template ("* %? %^G\nSCHEDULED: %^{Início:}t"
-                                        "%i"))
-                            (,(format "%s\tAtividade" (all-the-icons-octicon "inbox" :face 'all-the-icons-blue :v-adjust 0.01))
+                 :type entry
+                 :template ("* %? %^G\nSCHEDULED: %^{Início:}t"
+                            "%i"))
+                (,(format "%s\tAtividade" (all-the-icons-octicon "inbox" :face 'all-the-icons-blue :v-adjust 0.01))
+                 :keys "a"
+                 :file ronisbr/org-capture-inbox-file
+                 :headline "Atividades"
+                 :hook (lambda () (ispell-change-dictionary "pt_BR"))
+                 :prepend t
+                 :type entry
+                 :template ("* TODO %? %^G%{extra}"
+                            "%i")
+                 :children ((,(format "%s\tSem prazo" (all-the-icons-octicon "checklist" :face 'all-the-icons-green :v-adjust 0.01))
+                             :keys "g"
+                             :extra "")
+                            (,(format "%s\tCom prazo" (all-the-icons-material "timer" :face 'all-the-icons-yellow :v-adjust -0.1))
+                             :keys "p"
+                             :extra "\nDEADLINE: %^{Prazo:}t")
+                            (,(format "%s\tCom agendamento" (all-the-icons-octicon "calendar" :face 'all-the-icons-blue :v-adjust 0.01))
                              :keys "a"
-                             :headline "Caixa de entrada"
-                             :type entry
-                             :template ("* TODO %? %^G%{extra}"
-                                        "%i")
-                             :children ((,(format "%s\tSem prazo" (all-the-icons-octicon "checklist" :face 'all-the-icons-green :v-adjust 0.01))
-                                         :keys "g"
-                                         :extra "")
-                                        (,(format "%s\tCom prazo" (all-the-icons-material "timer" :face 'all-the-icons-yellow :v-adjust -0.1))
-                                         :keys "p"
-                                         :extra "\nDEADLINE: %^{Prazo:}t")
-                                        (,(format "%s\tCom agendamento" (all-the-icons-octicon "calendar" :face 'all-the-icons-blue :v-adjust 0.01))
-                                         :keys "a"
-                                         :extra "\nSCHEDULED: %^{Início:}t"
-                                         ))))))))
+                             :extra "\nSCHEDULED: %^{Início:}t"
+                             ))))))
 
   ;; ===========================================================================
   ;;                               Org agenda
@@ -242,16 +210,18 @@
            ((todo "TODO" ((org-agenda-overriding-header
                            (concat "️⚡ To do list\n"
                                    "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺\n"
-                                   " Category    | Tag                  | Description"))
+                                   " Category    | Subject              | Description"))
                           (org-agenda-remove-tags t)
-                          (org-agenda-prefix-format " %-11.11c | %-20.20T |")
+                          (org-agenda-prefix-format " %-11.11c | %-20.20b |")
+                          (org-agenda-breadcrumbs-separator "")
                           (org-agenda-todo-keyword-format "")))
             (todo "INPR" ((org-agenda-overriding-header
                            (concat "️⚡ To do list (in progress)\n"
                                    "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺\n"
-                                   " Category    | Tag                  | Description"))
+                                   " Category    | Subject              | Description"))
                           (org-agenda-remove-tags t)
                           (org-agenda-prefix-format " %-11.11c | %-20.20T |")
+                          (org-agenda-breadcrumbs-separator "")
                           (org-agenda-todo-keyword-format "")))
           (agenda "" ())
           ))))
